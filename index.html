@@ -21,7 +21,7 @@
     <!-- Form -->
     <h1>Shift Consumables form</h1>
     <div id="line"></div>
-    <form id="ShiftConsumablform">
+    <form id="ShiftConsumablesform">
         <!-- Wapda -->
              <!-- first three -->
              <h2>Chemicals</h2>
@@ -44,7 +44,7 @@
                 <div class="wrapper">
                     <label for="RSD">Total cleaning foam(kg)</label>
                         <input type="number" required min="0" id="wapdaoffpeakend"
-                            name="cleaning foam for ShiftConsumables" required
+                            name="Cleaning foam for ShiftConsumables" required
                             placeholder=" Enter Total cleaning foam(kg)" step=".1">
                 </div>
                 <div class="wrapper">
@@ -61,27 +61,27 @@
                  <label for="RSD">(A)Veg.Oil (fresh) - initial(kg)</label>
                  
                      <input type="number" id="wapdapeak"
-                         name="Veg.Oil (fresh) - initial for ShiftConsumables" required placeholder="Enter Veg.Oil (fresh) - initial(kg)"
+                         name="(A)Veg.Oil (fresh) - initial for ShiftConsumables" required placeholder="Enter Veg.Oil (fresh) - initial(kg)"
                      min="0" step=".1">
                  </div>
                  <div class="wrapper">
                      <label for="RSD">(B)Veg. Oil (fresh) - Final(kg)</label>
          
                      <input type="number" required min="0" id="wapdatotal"
-                         name="Veg. Oil (fresh) - Final for ShiftConsumables" required placeholder="Enter Veg. Oil (fresh) - Final(kg)" min="0" step=".1">
+                         name="(B)Veg. Oil (fresh) - Final for ShiftConsumables" required placeholder="Enter Veg. Oil (fresh) - Final(kg)" min="0" step=".1">
                  </div>
              </div>
                 <div class="RSD">
                  <div class="wrapper">
                      <label for="RSD">(C)Veg.Oil (D.Tank)-initial(liters) </label>
                          <input type="number" required min="0" id="wapdaoffpeakend"
-                             name="Veg.Oil (D.Tank)-initial ShiftConsumables" required
+                             name="(C)Veg.Oil (D.Tank)-initial ShiftConsumables" required
                              placeholder="Enter Veg.Oil (D.Tank)-initial(liters)" step=".1">
                  </div>
                  <div class="wrapper">
                      <label for="RSD">(D)Veg.Oil (D.Tank)-Final(liters)</label>
                          <input type="number" required min="0" id="wapdaoffpeakend"
-                             name="Veg.Oil (D.Tank)-Final ShiftConsumables" required
+                             name="(D)Veg.Oil (D.Tank)-Final ShiftConsumables" required
                              placeholder="Enter Veg.Oil (D.Tank)-Final(liters)" step=".1">
                  </div>
              </div>
@@ -93,27 +93,27 @@
                     <label for="RSD">Diesel</label>
                     
                         <input type="number" id="wapdapeak"
-                            name="Diesel ShiftConsumables" required placeholder="Enter Diesel Used(L)"
+                            name="Diesel" required placeholder="Enter Diesel Used(L)"
                         min="0" step=".1">
                     </div>
                     <div class="wrapper">
                         <label for="RSD">Electricity</label>
             
                         <input type="number" required min="0" id="wapdatotal"
-                            name="Electricity for ShiftConsumables" required placeholder="Enter Electricity Used(W)" min="0" step=".1">
+                            name="Electricity" required placeholder="Enter Electricity Used(W)" min="0" step=".1">
                     </div>
                 </div>
                    <div class="RSD">
                     <div class="wrapper">
                         <label for="RSD">Raw Water(m3)</label>
                             <input type="number" required min="0" id="wapdaoffpeakend"
-                                name="Raw Water ShiftConsumables" required
+                                name="Raw Water" required
                                 placeholder=" Enter Raw Water (m3)" step=".1">
                     </div>
                     <div class="wrapper">
                         <label for="RSD">RO Water(m3)</label>
                             <input type="number" required min="0" id="wapdaoffpeakend"
-                                name="RO Water for ShiftConsumables" required
+                                name="RO Water" required
                                 placeholder="Enter RO Water(m3) " step=".1">
                     </div>
                 </div>
@@ -141,7 +141,7 @@
 
                     <div class="wrapper">
                         <label for="RSD">Poly Bags</label>
-                            <input type="number" id="gen1diesel" name= "Poly Bags for ShiftConsumablesform" required
+                            <input type="number" id="gen1diesel" name= "Poly Bags for ShiftConsumables" required
                                 placeholder="Enter Poly Bags" min="0">
                     </div>
                 </div>
@@ -175,8 +175,8 @@
 
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzUQmrGFU0_sfOuj6NJhkukZ0fj85jKjUCjpajwbyTWq9TXKjROrODvWuztStjeovzl/exec';
-        const form = document.getElementById("AdditiveChemicalUsageform");
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz-e-PTCch2WFVSymwWIMyOIRI_XXOYjqM0ZaLD5XyG4YKOlK_D0co-ErRA3q4dTFV19g/exec';
+        const form = document.getElementById("ShiftConsumablesform");
 
         // modal javascript
         // Get the modal element, the close button, and the close button inside the modal
@@ -213,7 +213,7 @@
 
     <!-- reseting form after submitting -->
     <script>
-        document.getElementById('AdditiveChemicalUsageform').addEventListener('submit', function (event) {
+        document.getElementById('ShiftConsumablesform').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the default form submission
 
             this.reset();
