@@ -66,35 +66,40 @@
              <!-- second third -->
              <h2>Vegetable Oil</h2>
              <div class="RSD">
-                 <div class="wrapper">
-                 <label for="RSD">(A)Veg.Oil (fresh) - initial(kg)</label>
-                 
-                     <input type="number" 
-                         name="(A)Veg.Oil (fresh) - initial for ShiftConsumables"  placeholder="Enter Veg.Oil (fresh) - initial(kg)"
-                     min="0" step=".1">
-                 </div>
-                 <div class="wrapper">
-                     <label for="RSD">(B)Veg. Oil (fresh) - Final(kg)</label>
-         
-                     <input type="number"  min="0" 
-                         name="(B)Veg. Oil (fresh) - Final for ShiftConsumables" placeholder="Enter Veg. Oil (fresh) - Final(kg)" min="0" step=".1">
-                 </div>
-             </div>
-                <div class="RSD">
-                 <div class="wrapper">
-                     <label for="RSD">(C)Veg.Oil (D.Tank)-initial(liters) </label>
-                         <input type="number" required min="0" id="wapdaoffpeakend"
-                             name="(C)Veg.Oil (D.Tank)-initial ShiftConsumables" required
-                             placeholder="Enter Veg.Oil (D.Tank)-initial(liters)" step=".1">
-                 </div>
-                 <div class="wrapper">
-                     <label for="RSD">(D)Veg.Oil (D.Tank)-Final(liters)</label>
-                         <input type="number" required min="0" id="wapdaoffpeakend"
-                             name="(D)Veg.Oil (D.Tank)-Final ShiftConsumables" required
-                             placeholder="Enter Veg.Oil (D.Tank)-Final(liters)" step=".1">
-                 </div>
-             </div>
-                
+                <div class="wrapper">
+                    <label for="RSD">(A)Veg.Oil (fresh) - initial(kg)</label>
+                    <input type="number" id="VegOilInitial"
+                        name="(A)Veg.Oil (fresh) - initial for ShiftConsumables" placeholder="Enter Veg.Oil (fresh) - initial(kg)"
+                        min="0" step=".1" oninput="calculateTotalOilConsumption()">
+                </div>
+                <div class="wrapper">
+                    <label for="RSD">(B)Veg. Oil (fresh) - Final(kg)</label>
+                    <input type="number" id="VegOilFinal"
+                        name="(B)Veg. Oil (fresh) - Final for ShiftConsumables" placeholder="Enter Veg. Oil (fresh) - Final(kg)" min="0" step=".1" oninput="calculateTotalOilConsumption()">
+                </div>
+            </div>
+            
+            <div class="RSD">
+                <div class="wrapper">
+                    <label for="RSD">(C)Veg.Oil (D.Tank)-initial(liters)</label>
+                    <input type="number" required min="0" id="VegOilDTankInitial"
+                        name="(C)Veg.Oil (D.Tank)-initial ShiftConsumables" required
+                        placeholder="Enter Veg.Oil (D.Tank)-initial(liters)" step=".1" oninput="calculateTotalOilConsumption()">
+                </div>
+                <div class="wrapper">
+                    <label for="RSD">(D)Veg.Oil (D.Tank)-Final(liters)</label>
+                    <input type="number" required min="0" id="VegOilDTankFinal"
+                        name="(D)Veg.Oil (D.Tank)-Final ShiftConsumables" required
+                        placeholder="Enter Veg.Oil (D.Tank)-Final(liters)" step=".1" oninput="calculateTotalOilConsumption()">
+                </div>
+            </div>
+            
+            <div class="wrapper">
+                <label for="RSD">Total Oil Consumption</label>
+                <input type="number" id="totalOilConsumption" name="Total Oil Consumption ShiftConsumables" required
+                    placeholder="Enter Oil Consumption" min="0" step="0.1" readonly>
+            </div>
+            
                 <!-- third three -->
   
 
@@ -108,17 +113,7 @@
                             <input type="number" id="gen1diesel" name= "Cartons for ShiftConsumables" required
                                 placeholder="Enter Cartons" min="0">
                     </div>
-                
-
-                        
-                        
-
-                           <div class="wrapper">
-                        <label for="RSD">Total Oil Consumption</label>
-                            <input type="number" id="gen1diesel" name= "Total Oil Consumption ShiftConsumables" required
-                                placeholder="Enter Oil Consumption" min="0" step="0.1">
-                    </div>
-
+            
                     <div class="wrapper">
                         <label for="RSD">Poly Bags</label>
                             <input type="number" id="gen1diesel" name= "Poly Bags for ShiftConsumables" required
@@ -249,6 +244,30 @@
                 durationInput.setCustomValidity('Please enter a valid duration in HH:MM format with hours under 23 and minutes under 60.');
             }
         });
+    </script>
+    <!-- end of check time validation -->
+    <script>
+  function calculateTotalOilConsumption() {
+    // Retrieve values from the first set of inputs
+    const vegOilInitial = parseFloat(document.getElementById("VegOilInitial").value);
+    const vegOilFinal = parseFloat(document.getElementById("VegOilFinal").value);
+
+    // Retrieve values from the second set of inputs
+    const vegOilDTankInitial = parseFloat(document.getElementById("VegOilDTankInitial").value);
+    const vegOilDTankFinal = parseFloat(document.getElementById("VegOilDTankFinal").value);
+
+    // Calculate the differences
+    const differenceFirstSet = vegOilFinal - vegOilInitial;
+    const differenceSecondSet = vegOilDTankFinal - vegOilDTankInitial;
+
+    // Calculate the total consumption by adding the differences
+    const totalConsumption = differenceFirstSet + differenceSecondSet;
+
+    // Display the total consumption in the input field
+    document.getElementById("totalOilConsumption").value = totalConsumption;
+}
+
+
     </script>
 
 
